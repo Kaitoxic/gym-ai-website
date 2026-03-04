@@ -225,8 +225,34 @@ export default function Home() {
   useLenis();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const featuresRef = useRef(null);
   const featuresInView = useInView(featuresRef, { once: true, margin: "-60px" });
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json();
+        setError(data.error || "Une erreur est survenue.");
+      }
+    } catch {
+      setError("Une erreur est survenue.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <>
@@ -606,8 +632,9 @@ export default function Home() {
           </p>
 
           {!submitted ? (
-            <motion.form
-              onSubmit={(e) => { e.preventDefault(); if (email) setSubmitted(true); }}
+            <>
+              <motion.form
+              onSubmit={handleSubmit}
               className="relative flex flex-col sm:flex-row gap-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -620,17 +647,21 @@ export default function Home() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="ton@email.com"
-                className="flex-1 px-5 py-4 rounded-2xl bg-white/[0.04] border border-violet-500/20 text-white placeholder-gray-600 outline-none focus:border-violet-500/50 focus:bg-white/[0.07] transition-all text-sm"
+                disabled={loading}
+                className="flex-1 px-5 py-4 rounded-2xl bg-white/[0.04] border border-violet-500/20 text-white placeholder-gray-600 outline-none focus:border-violet-500/50 focus:bg-white/[0.07] transition-all text-sm disabled:opacity-50"
               />
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.96 }}
-                className="px-7 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-sm shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-shadow duration-300 whitespace-nowrap"
+                disabled={loading}
+                whileHover={{ scale: loading ? 1 : 1.05 }}
+                whileTap={{ scale: loading ? 1 : 0.96 }}
+                className="px-7 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-sm shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-shadow duration-300 whitespace-nowrap disabled:opacity-60"
               >
-                Je m&apos;inscris →
+                {loading ? "..." : "Je m'inscris →"}
               </motion.button>
             </motion.form>
+            {error && <p className="text-red-400 text-xs mt-3">{error}</p>}
+            </>
           ) : (
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
