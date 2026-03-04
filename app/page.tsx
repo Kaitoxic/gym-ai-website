@@ -203,8 +203,8 @@ function PhoneCarousel() {
 // ─── Data ─────────────────────────────────────────────────────────
 const features = [
   { icon: "🤖", title: "Programmes IA", desc: "Génère un programme de musculation complet en 30 secondes, adapté à ton profil, ton matériel et tes objectifs.", badge: "Pro" },
-  { icon: "🥗", title: "Nutrition AI", desc: "Conseils nutritionnels personnalisés basés sur ta morphologie, ton objectif et tes habitudes alimentaires." },
-  { icon: "🏃", title: "Cardio AI", desc: "Plans HIIT, LISS et MIIT générés par l'IA selon ton niveau et ta composition corporelle cible." },
+  { icon: "🥗", title: "Nutrition AI", desc: "Conseils nutritionnels personnalisés basés sur ta morphologie, ton objectif et tes habitudes alimentaires.", badge: "Pro" },
+  { icon: "🏃", title: "Cardio AI", desc: "Plans HIIT, LISS et MIIT générés par l'IA selon ton niveau et ta composition corporelle cible.", badge: "Pro" },
   { icon: "📊", title: "Suivi & Streaks", desc: "Logge tes séances en temps réel, visualise ta progression et garde ta flamme avec les streaks quotidiens." },
   { icon: "⚡", title: "Adaptation IA", desc: "Après chaque séance, l'IA analyse tes perfs et ajuste automatiquement les charges de la prochaine session.", badge: "Pro" },
   { icon: "💬", title: "Coach Chat", desc: "Pose tes questions à ton coach IA 24h/24 — technique, récupération, nutrition, motivation." },
