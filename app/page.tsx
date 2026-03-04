@@ -474,8 +474,8 @@ export default function Home() {
               </div>
 
               <div>
-                <p className="text-white font-bold text-lg">Clément</p>
-                <p className="text-gray-500 text-sm">Fondateur & Coach — GymCoach AI</p>
+                <p className="text-white font-bold text-lg">Kaito</p>
+                <p className="text-gray-500 text-sm">Fondateur &amp; Coach GymCoach AI</p>
               </div>
             </div>
           </div>
