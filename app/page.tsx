@@ -456,7 +456,7 @@ export default function Home() {
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center text-3xl font-black shadow-[0_0_40px_rgba(139,92,246,0.6)] border border-violet-400/30">
-                  C
+                  K
                 </div>
               </div>
 
