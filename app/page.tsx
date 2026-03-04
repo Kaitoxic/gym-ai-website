@@ -465,11 +465,11 @@ export default function Home() {
                   Pendant la bêta
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-white mb-5">
-                  Je m&apos;occupe de toi personnellement
+                  Je suis disponible pour toi pendant la bêta
                 </h2>
                 <p className="text-gray-400 leading-relaxed text-base max-w-xl mx-auto">
-                  Durant la phase bêta, je prends en charge moi-même le coaching des premiers utilisateurs.
-                  Accès direct, programmes sur-mesure, retours immédiats — en plus de toute la puissance de l&apos;IA.
+                  Durant la phase bêta, je génère ton programme sur-mesure et te donne des conseils directement.
+                  Tu as une question sur ta séance, ta nutrition ou ton programme ? Je réponds.
                 </p>
               </div>
 
